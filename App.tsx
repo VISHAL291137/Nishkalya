@@ -29,8 +29,12 @@ const Hero: React.FC = () => (
         Power in Stillness — Handcrafted & Premium
       </p>
       <div className="flex flex-col md:flex-row gap-4 justify-center pt-8">
-        <Button variant="primary" className="!px-8 !py-4 text-base shadow-xl">Explore Projects</Button>
-        <Button variant="secondary" className="!px-8 !py-4 text-base shadow-lg">View Gallery</Button>
+        <a href="#projects">
+          <Button variant="primary" className="!px-8 !py-4 text-base shadow-xl">Explore Projects</Button>
+        </a>
+        <a href="#gallery">
+          <Button variant="secondary" className="!px-8 !py-4 text-base shadow-lg">View Gallery</Button>
+        </a>
       </div>
     </div>
 
@@ -54,7 +58,7 @@ const App: React.FC = () => {
           <main className="lg:col-span-8 space-y-16">
             
             {/* About Section */}
-            <section id="about" className="scroll-mt-24">
+            <section id="about" className="scroll-mt-28">
               <div className="flex flex-col md:flex-row gap-8 items-center bg-white p-8 md:p-12 rounded-lg shadow-sm border border-nish-ivory">
                 <div className="flex-1 space-y-6">
                   <h2 className="font-serif text-3xl text-nish-brown font-bold tracking-wide">ABOUT US</h2>
@@ -81,7 +85,7 @@ const App: React.FC = () => {
             <Projects />
             
             {/* AI Feature - Branding Muse */}
-            <div id="muse" className="scroll-mt-24">
+            <div id="muse" className="scroll-mt-28">
               <AIConceptGenerator />
             </div>
 

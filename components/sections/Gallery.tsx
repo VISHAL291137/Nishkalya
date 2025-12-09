@@ -25,7 +25,7 @@ export const Gallery: React.FC = () => {
 
   return (
     <>
-      <Card title="Visual Gallery" hasAccentBorder={true} id="gallery">
+      <Card title="Visual Gallery" hasAccentBorder={true} id="gallery" className="scroll-mt-28">
         {/* Filter Bar */}
         <div className="flex flex-wrap gap-2 mb-8 border-b border-nish-ivory pb-4">
           {categories.map((cat) => (

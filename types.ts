@@ -4,6 +4,8 @@ export interface Project {
   category: string;
   description: string;
   imageUrl: string;
+  link?: string;
+  techStack?: string[];
 }
 
 export interface Highlight {

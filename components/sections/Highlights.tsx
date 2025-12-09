@@ -25,7 +25,7 @@ const highlightsData: Highlight[] = [
 
 export const Highlights: React.FC = () => {
   return (
-    <div id="highlights" className="mb-12">
+    <div id="highlights" className="mb-12 scroll-mt-28">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {highlightsData.map((item) => (
           <div key={item.id} className="group cursor-pointer bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 border border-nish-ivory/50">
