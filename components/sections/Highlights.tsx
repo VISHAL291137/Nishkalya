@@ -5,19 +5,19 @@ import { Highlight } from '../../types';
 const highlightsData: Highlight[] = [
   {
     id: '1',
-    title: 'Art & Icon Work',
-    description: 'Custom iconography and mark-making rooted in heritage forms.',
+    title: 'Visual Identity',
+    description: 'Custom iconography and brand mark-making rooted in heritage forms.',
     imageUrl: 'https://picsum.photos/400/300?grayscale&random=10'
   },
   {
     id: '2',
-    title: 'Products',
-    description: 'Product presentation and packaging for premium objects.',
+    title: 'Digital Craft',
+    description: 'Clean, responsive web development focused on performance and interaction.',
     imageUrl: 'https://picsum.photos/400/300?grayscale&random=11'
   },
   {
     id: '3',
-    title: 'Storytelling',
+    title: 'Brand Strategy',
     description: 'Case studies and process narratives that explain design choices.',
     imageUrl: 'https://picsum.photos/400/300?grayscale&random=12'
   }

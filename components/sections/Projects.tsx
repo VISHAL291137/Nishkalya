@@ -6,23 +6,23 @@ import { ArrowRight } from 'lucide-react';
 const projects: Project[] = [
   {
     id: '1',
-    title: 'Project One',
-    category: 'Branding',
-    description: "A complete visual identity overhaul for a heritage ceramic studio.",
+    title: 'Nishkalya Branding',
+    category: 'Visual Identity',
+    description: "A complete visual identity overhaul for a premium creative studio, focusing on heritage forms and modern minimalism.",
     imageUrl: 'https://picsum.photos/800/600?random=20'
   },
   {
     id: '2',
-    title: 'Project Two',
-    category: 'Packaging',
-    description: 'Sustainable packaging design series for organic skincare.',
+    title: 'AI Concept Engine',
+    category: 'Development',
+    description: 'A React-based tool integrating Google Gemini API to generate creative brand concepts dynamically.',
     imageUrl: 'https://picsum.photos/800/600?random=21'
   },
   {
     id: '3',
-    title: 'Project Three',
-    category: 'Digital',
-    description: 'Web experience and art direction for a slow-fashion label.',
+    title: 'E-Commerce Dashboard',
+    category: 'Full Stack',
+    description: 'Scalable shopping platform architecture with seamless checkout flows and real-time analytics.',
     imageUrl: 'https://picsum.photos/800/600?random=22'
   }
 ];

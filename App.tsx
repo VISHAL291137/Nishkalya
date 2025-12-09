@@ -59,8 +59,8 @@ const App: React.FC = () => {
                 <div className="flex-1 space-y-6">
                   <h2 className="font-serif text-3xl text-nish-brown font-bold tracking-wide">ABOUT US</h2>
                   <p className="text-lg leading-relaxed text-nish-grey font-light">
-                    We craft visual identities and premium branded work rooted in calm, clarity, and detail. 
-                    Our process values composition, material feel, and slow design that ages well.
+                    Founded by <strong>Vishal Kumar</strong>, Nishkalya is a creative study in visual identity and digital craft. 
+                    We build premium branded work rooted in calm, clarity, and detail. Our process values composition, material feel, and slow design that ages well.
                   </p>
                   <Button variant="text" className="!p-0 !text-nish-gold font-bold flex items-center mt-4">
                     Read Our Story <ArrowRight className="w-4 h-4 ml-2" />

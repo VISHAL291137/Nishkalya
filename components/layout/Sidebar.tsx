@@ -14,11 +14,25 @@ export const Sidebar: React.FC = () => {
             <p className="font-semibold text-lg hover:text-nish-gold transition-colors cursor-pointer">hello@nishkalya.com</p>
           </div>
           <div>
-            <p className="text-nish-grey text-xs uppercase tracking-wider mb-1">Follow</p>
-            <div className="flex gap-4 text-nish-gold font-medium">
+            <p className="text-nish-grey text-xs uppercase tracking-wider mb-1">Connect</p>
+            <div className="flex flex-col gap-2 text-nish-gold font-medium">
+              <a 
+                href="https://www.linkedin.com/in/vishal-kumar291137/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors flex items-center gap-2"
+              >
+                LinkedIn <span className="text-xs opacity-50">↗</span>
+              </a>
+              <a 
+                href="https://github.com/VISHAL291137" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors flex items-center gap-2"
+              >
+                GitHub <span className="text-xs opacity-50">↗</span>
+              </a>
               <a href="#" className="hover:text-white transition-colors">Instagram</a>
-              <a href="#" className="hover:text-white transition-colors">Behance</a>
-              <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
             </div>
           </div>
         </div>
