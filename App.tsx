@@ -8,7 +8,7 @@ import { Highlights } from './components/sections/Highlights';
 import { Gallery } from './components/sections/Gallery';
 import { Projects } from './components/sections/Projects';
 import { AIConceptGenerator } from './components/AIConceptGenerator';
-import { ArrowDown } from 'lucide-react';
+import { ArrowDown, Construction } from 'lucide-react';
 
 // Simple hash router hook
 const useHashPath = () => {
@@ -80,6 +80,29 @@ const PageLayout: React.FC<{ children: React.ReactNode; title?: string }> = ({ c
   );
 };
 
+// Placeholder Project Detail
+const ProjectDetail: React.FC = () => {
+  const projectId = window.location.hash.split('/').pop() || '';
+  const formattedTitle = projectId.replace(/-/g, ' ').toUpperCase();
+
+  return (
+    <div className="bg-white p-12 rounded-lg shadow-sm border border-nish-ivory text-center py-32 animate-in fade-in zoom-in duration-500 relative overflow-hidden">
+       <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-nish-brown via-nish-gold to-nish-brown"></div>
+       <div className="w-20 h-20 bg-nish-ivory/50 rounded-full flex items-center justify-center mx-auto mb-6">
+         <Construction className="w-10 h-10 text-nish-gold" />
+       </div>
+       <h2 className="font-serif text-3xl text-nish-brown mb-2 font-bold">{formattedTitle}</h2>
+       <p className="font-sans text-sm text-nish-gold uppercase tracking-widest mb-6">Case Study Coming Soon</p>
+       <p className="text-nish-grey max-w-md mx-auto mb-8 leading-relaxed">
+         We are currently documenting the intricate details, code architecture, and design decisions for <strong>{formattedTitle}</strong>. The full case study will be available shortly.
+       </p>
+       <a href="#/projects">
+         <Button variant="outline">Back to Projects</Button>
+       </a>
+    </div>
+  );
+};
+
 const HomePage: React.FC = () => (
   <>
     <Hero />
@@ -122,6 +145,8 @@ const App: React.FC = () => {
     Content = <PageLayout title="Gallery"><Gallery /></PageLayout>;
   } else if (path === '/projects') {
     Content = <PageLayout title="Projects"><Projects /></PageLayout>;
+  } else if (path.startsWith('/project/')) {
+    Content = <PageLayout title="Project Detail"><ProjectDetail /></PageLayout>;
   }
 
   return (

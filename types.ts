@@ -5,6 +5,7 @@ export interface Project {
   description: string;
   imageUrl: string;
   link?: string;
+  demoLink?: string;
   techStack?: string[];
 }
 
