@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Sidebar } from './components/layout/Sidebar';
-import { Card } from './components/ui/Card';
 import { Button } from './components/ui/Button';
+import { About } from './components/sections/About';
 import { Highlights } from './components/sections/Highlights';
 import { Gallery } from './components/sections/Gallery';
 import { Projects } from './components/sections/Projects';
 import { AIConceptGenerator } from './components/AIConceptGenerator';
-import { ArrowDown, ArrowRight } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
+
+// Simple hash router hook
+const useHashPath = () => {
+  const [path, setPath] = useState(window.location.hash.replace('#', '') || '/');
+
+  useEffect(() => {
+    const onHashChange = () => {
+      setPath(window.location.hash.replace('#', '') || '/');
+    };
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
+
+  return path;
+};
 
 const Hero: React.FC = () => (
   <section className="relative min-h-[85vh] flex flex-col justify-center items-center text-center px-4 mb-16 overflow-hidden">
@@ -29,10 +44,10 @@ const Hero: React.FC = () => (
         Power in Stillness — Handcrafted & Premium
       </p>
       <div className="flex flex-col md:flex-row gap-4 justify-center pt-8">
-        <a href="#projects">
+        <a href="#/projects">
           <Button variant="primary" className="!px-8 !py-4 text-base shadow-xl">Explore Projects</Button>
         </a>
-        <a href="#gallery">
+        <a href="#/gallery">
           <Button variant="secondary" className="!px-8 !py-4 text-base shadow-lg">View Gallery</Button>
         </a>
       </div>
@@ -44,60 +59,75 @@ const Hero: React.FC = () => (
   </section>
 );
 
-const App: React.FC = () => {
+// Layout wrapper for inner pages
+const PageLayout: React.FC<{ children: React.ReactNode; title?: string }> = ({ children, title }) => {
   return (
-    <div className="min-h-screen bg-[#F3E9D2] bg-opacity-40 font-body text-nish-brown selection:bg-nish-gold selection:text-white">
-      <Header />
-      
-      <Hero />
-      
-      <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          
-          {/* Main Content Column */}
-          <main className="lg:col-span-8 space-y-16">
-            
-            {/* About Section */}
-            <section id="about" className="scroll-mt-28">
-              <div className="flex flex-col md:flex-row gap-8 items-center bg-white p-8 md:p-12 rounded-lg shadow-sm border border-nish-ivory">
-                <div className="flex-1 space-y-6">
-                  <h2 className="font-serif text-3xl text-nish-brown font-bold tracking-wide">ABOUT US</h2>
-                  <p className="text-lg leading-relaxed text-nish-grey font-light">
-                    Founded by <strong>Vishal Kumar</strong>, Nishkalya is a creative study in visual identity and digital craft. 
-                    We build premium branded work rooted in calm, clarity, and detail. Our process values composition, material feel, and slow design that ages well.
-                  </p>
-                  <Button variant="text" className="!p-0 !text-nish-gold font-bold flex items-center mt-4">
-                    Read Our Story <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
-                </div>
-                
-                <div className="hidden md:flex flex-col items-center justify-center p-8 bg-nish-ivory/30 rounded-lg border border-nish-brown/10 w-64 h-64 text-center">
-                   <span className="text-4xl mb-4">✨</span>
-                   <span className="block font-serif font-bold text-nish-brown tracking-[0.2em] mb-2">PREMIUM</span>
-                   <span className="block font-serif font-bold text-nish-brown tracking-[0.2em] mb-2">TIMELESS</span>
-                   <span className="block font-serif font-bold text-nish-brown tracking-[0.2em]">CLEAN</span>
-                </div>
-              </div>
-            </section>
-
-            <Highlights />
-            <Gallery />
-            <Projects />
-            
-            {/* AI Feature - Branding Muse */}
-            <div id="muse" className="scroll-mt-28">
-              <AIConceptGenerator />
+    <div className="max-w-7xl mx-auto px-4 md:px-6 pt-24 md:pt-32">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <main className="lg:col-span-8 min-h-[60vh]">
+          {title && (
+            <div className="mb-8 border-b border-nish-brown/10 pb-4">
+              <h1 className="font-serif text-4xl md:text-5xl text-nish-brown font-bold tracking-tight">{title}</h1>
             </div>
+          )}
+          {children}
+        </main>
+        <aside className="lg:col-span-4 hidden lg:block">
+          <Sidebar />
+        </aside>
+      </div>
+    </div>
+  );
+};
 
+const HomePage: React.FC = () => (
+  <>
+    <Hero />
+    <div className="max-w-7xl mx-auto px-4 md:px-6">
+       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          <main className="lg:col-span-8 space-y-16">
+            <About />
+            <div className="text-center py-12">
+               <h3 className="font-serif text-2xl text-nish-brown mb-4">Discover More</h3>
+               <div className="flex justify-center gap-4">
+                 <a href="#/highlights"><Button variant="outline">Highlights</Button></a>
+                 <a href="#/projects"><Button variant="outline">Projects</Button></a>
+               </div>
+            </div>
+            <AIConceptGenerator />
           </main>
-
-          {/* Sidebar Column */}
           <aside className="lg:col-span-4 hidden lg:block">
             <Sidebar />
           </aside>
-        </div>
-      </div>
+       </div>
+    </div>
+  </>
+);
 
+const App: React.FC = () => {
+  const path = useHashPath();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [path]);
+
+  let Content = <HomePage />;
+  if (path === '/' || path === '') {
+    Content = <HomePage />;
+  } else if (path === '/about') {
+    Content = <PageLayout title="Our Story"><About /></PageLayout>;
+  } else if (path === '/highlights') {
+    Content = <PageLayout title="Highlights"><Highlights /></PageLayout>;
+  } else if (path === '/gallery') {
+    Content = <PageLayout title="Gallery"><Gallery /></PageLayout>;
+  } else if (path === '/projects') {
+    Content = <PageLayout title="Projects"><Projects /></PageLayout>;
+  }
+
+  return (
+    <div className="min-h-screen bg-[#F3E9D2] bg-opacity-40 font-body text-nish-brown selection:bg-nish-gold selection:text-white flex flex-col justify-between">
+      <Header />
+      {Content}
       <Footer />
     </div>
   );
