@@ -1,7 +1,8 @@
 import React from 'react';
 import { Card } from '../ui/Card';
+import { Button } from '../ui/Button';
 import { Project } from '../../types';
-import { ArrowRight, Github, ExternalLink, Code, Eye } from 'lucide-react';
+import { Github, ExternalLink, Eye } from 'lucide-react';
 
 const projects: Project[] = [
   {
@@ -122,11 +123,10 @@ export const Projects: React.FC = () => {
                  
                  {/* Action Buttons */}
                  <div className="flex flex-wrap gap-4 mt-auto">
-                    <a 
-                      href={`#/project/${project.id}`}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-nish-ivory text-nish-brown border border-nish-ivory rounded text-xs font-bold uppercase tracking-widest hover:bg-nish-gold hover:text-white hover:border-nish-gold transition-all shadow-sm"
-                    >
-                      <Eye size={16} /> View Project
+                    <a href={`#/project/${project.id}`}>
+                      <Button variant="outline" className="flex items-center gap-2 !px-5 !py-2.5 !text-xs hover:bg-nish-brown hover:text-white">
+                        <Eye size={16} /> View Project
+                      </Button>
                     </a>
 
                     {project.link && (
@@ -134,9 +134,10 @@ export const Projects: React.FC = () => {
                         href={project.link} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 bg-nish-brown text-white rounded text-xs font-bold uppercase tracking-widest hover:bg-black transition-all shadow-md hover:shadow-lg"
                       >
-                        <Github size={16} /> Repository
+                         <Button variant="primary" className="flex items-center gap-2 !px-5 !py-2.5 !text-xs">
+                           <Github size={16} /> Repository
+                         </Button>
                       </a>
                     )}
                     
@@ -145,9 +146,10 @@ export const Projects: React.FC = () => {
                         href={project.demoLink} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 border border-nish-brown text-nish-brown rounded text-xs font-bold uppercase tracking-widest hover:bg-nish-brown hover:text-white transition-all"
                       >
-                        <ExternalLink size={16} /> Live Demo
+                         <Button variant="outline" className="flex items-center gap-2 !px-5 !py-2.5 !text-xs">
+                           <ExternalLink size={16} /> Live Demo
+                         </Button>
                       </a>
                     )}
                  </div>
