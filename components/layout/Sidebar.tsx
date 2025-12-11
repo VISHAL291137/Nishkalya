@@ -35,14 +35,19 @@ export const Sidebar: React.FC = () => {
               <a href="#" className="hover:text-white transition-colors">Instagram</a>
             </div>
           </div>
+          <div className="pt-4 mt-2">
+            <a href="#/contact" className="inline-block px-4 py-2 bg-nish-gold text-nish-brown text-xs font-bold uppercase tracking-widest rounded hover:bg-white transition-colors w-full text-center">
+              Send Message
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* Admin Link (Mock) */}
+      {/* Admin Link */}
        <div className="bg-white p-6 rounded-lg shadow-sm border border-nish-ivory/50">
         <h3 className="text-sm font-serif font-bold text-nish-brown mb-2 uppercase tracking-wider">Admin Access</h3>
-        <p className="text-xs text-nish-grey mb-4">Manage portfolio and uploads.</p>
-        <button className="text-xs font-bold text-nish-gold hover:text-nish-brown uppercase tracking-widest">Login to Dashboard →</button>
+        <p className="text-xs text-nish-grey mb-4">Manage portfolio and messages.</p>
+        <a href="#/admin" className="block text-center text-xs font-bold text-nish-gold hover:text-nish-brown uppercase tracking-widest border border-nish-ivory py-2 rounded hover:bg-nish-ivory transition-all">Login to Dashboard →</a>
       </div>
     </div>
   );

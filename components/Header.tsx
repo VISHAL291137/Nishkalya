@@ -32,11 +32,14 @@ export const Header: React.FC = () => {
           </a>
           
           <div className="hidden md:flex items-center gap-8">
-            <a href="#/about" className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors uppercase tracking-wide">About</a>
+            <a href="#/about" target="_blank" className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors uppercase tracking-wide">About</a>
             <a href="#/highlights" className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors uppercase tracking-wide">Highlights</a>
             <a href="#/gallery" className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors uppercase tracking-wide">Gallery</a>
             <a href="#/projects" className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors uppercase tracking-wide">Projects</a>
-            <Button variant="outline" className="!py-2 !px-4 text-xs">Admin</Button>
+            <a href="#/contact" className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors uppercase tracking-wide">Contact</a>
+            <a href="#/admin">
+               <Button variant="outline" className="!py-2 !px-4 text-xs">Admin</Button>
+            </a>
           </div>
 
           <div className="md:hidden">
@@ -55,6 +58,8 @@ export const Header: React.FC = () => {
             <a href="#/highlights" onClick={() => setMobileMenuOpen(false)} className="font-serif text-2xl text-nish-brown">Highlights</a>
             <a href="#/gallery" onClick={() => setMobileMenuOpen(false)} className="font-serif text-2xl text-nish-brown">Gallery</a>
             <a href="#/projects" onClick={() => setMobileMenuOpen(false)} className="font-serif text-2xl text-nish-brown">Projects</a>
+            <a href="#/contact" onClick={() => setMobileMenuOpen(false)} className="font-serif text-2xl text-nish-brown">Contact</a>
+            <a href="#/admin" onClick={() => setMobileMenuOpen(false)} className="font-serif text-2xl text-nish-brown text-nish-gold">Admin Login</a>
            </div>
         </div>
       )}

@@ -7,6 +7,8 @@ import { About } from './components/sections/About';
 import { Highlights } from './components/sections/Highlights';
 import { Gallery } from './components/sections/Gallery';
 import { Projects } from './components/sections/Projects';
+import { Contact } from './components/sections/Contact';
+import { Admin } from './components/sections/Admin';
 import { AIConceptGenerator } from './components/AIConceptGenerator';
 import { ArrowDown, Construction } from 'lucide-react';
 
@@ -47,8 +49,8 @@ const Hero: React.FC = () => (
         <a href="#/projects">
           <Button variant="primary" className="!px-8 !py-4 text-base shadow-xl">Explore Projects</Button>
         </a>
-        <a href="#/gallery">
-          <Button variant="secondary" className="!px-8 !py-4 text-base shadow-lg">View Gallery</Button>
+        <a href="#/about" target="_blank">
+           <Button variant="text" className="!px-8 !py-4 text-base">About Me</Button>
         </a>
       </div>
     </div>
@@ -145,6 +147,10 @@ const App: React.FC = () => {
     Content = <PageLayout title="Gallery"><Gallery /></PageLayout>;
   } else if (path === '/projects') {
     Content = <PageLayout title="Projects"><Projects /></PageLayout>;
+  } else if (path === '/contact') {
+    Content = <PageLayout title="Contact"><Contact /></PageLayout>;
+  } else if (path === '/admin') {
+    Content = <PageLayout title="Backend Admin"><Admin /></PageLayout>;
   } else if (path.startsWith('/project/')) {
     Content = <PageLayout title="Project Detail"><ProjectDetail /></PageLayout>;
   }
