@@ -11,7 +11,7 @@ export const generateCreativeConcept = async (topic: string): Promise<string> =>
 
   try {
     const response = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-2.5-flash-lite',
       contents: `Generate a short, poetic, and premium creative brand concept for the following topic: "${topic}". 
       
       Tone: Calm, sophisticated, timeless, minimal. 
