@@ -71,8 +71,10 @@ export const Projects: React.FC = () => {
                         <Eye size={20} />
                      </a>
                      {project.link && (
-                        <a
+                        <a 
                           href={project.link}
+                          target="_blank" 
+                          rel="noopener noreferrer"
                           className="bg-white p-3 rounded-full text-nish-brown hover:text-nish-gold hover:scale-110 transition-all shadow-lg"
                           title="View Repository"
                         >
@@ -80,8 +82,10 @@ export const Projects: React.FC = () => {
                         </a>
                      )}
                      {project.demoLink && (
-                        <a
+                        <a 
                           href={project.demoLink}
+                          target="_blank" 
+                          rel="noopener noreferrer"
                           className="bg-white p-3 rounded-full text-nish-brown hover:text-nish-gold hover:scale-110 transition-all shadow-lg"
                           title="Live Demo"
                         >
@@ -126,18 +130,22 @@ export const Projects: React.FC = () => {
                     </a>
 
                     {project.link && (
-                      <a
-                        href={project.link}
+                      <a 
+                        href={project.link} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
                       >
                          <Button variant="primary" className="flex items-center gap-2 !px-5 !py-2.5 !text-xs">
                            <Github size={16} /> Repository
                          </Button>
                       </a>
                     )}
-
+                    
                     {project.demoLink && (
-                      <a
-                        href={project.demoLink}
+                      <a 
+                        href={project.demoLink} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
                       >
                          <Button variant="outline" className="flex items-center gap-2 !px-5 !py-2.5 !text-xs">
                            <ExternalLink size={16} /> Live Demo
