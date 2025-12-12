@@ -11,24 +11,35 @@ export const Sidebar: React.FC = () => {
         <div className="space-y-4 font-body text-sm">
           <div>
             <p className="text-nish-grey text-xs uppercase tracking-wider mb-1">Inquiries</p>
-            <p className="font-semibold text-lg hover:text-nish-gold transition-colors cursor-pointer">hello@nishkalya.com</p>
+            <p className="font-semibold text-lg hover:text-nish-gold transition-colors cursor-pointer">nishkalya@gmail.com</p>
           </div>
           <div>
             <p className="text-nish-grey text-xs uppercase tracking-wider mb-1">Connect</p>
             <div className="flex flex-col gap-2 text-nish-gold font-medium">
-              <a
-                href="https://www.linkedin.com/in/vishal-kumar291137/"
+              <a 
+                href="https://www.linkedin.com/in/nishkalya" 
+                target="_blank" 
+                rel="noopener noreferrer"
                 className="hover:text-white transition-colors flex items-center gap-2"
               >
                 LinkedIn <span className="text-xs opacity-50">↗</span>
               </a>
-              <a
-                href="https://github.com/VISHAL291137"
+              <a 
+                href="https://github.com/VISHAL291137" 
+                target="_blank" 
+                rel="noopener noreferrer"
                 className="hover:text-white transition-colors flex items-center gap-2"
               >
                 GitHub <span className="text-xs opacity-50">↗</span>
               </a>
-              <a href="#" className="hover:text-white transition-colors">Instagram</a>
+              <a 
+                href="https://www.instagram.com/nishkalya/"
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-white transition-colors flex items-center gap-2"
+              >
+                Instagram <span className="text-xs opacity-50">↗</span>
+              </a>
             </div>
           </div>
           <div className="pt-4 mt-2">

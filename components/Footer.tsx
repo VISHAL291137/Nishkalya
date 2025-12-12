@@ -18,19 +18,31 @@ export const Footer: React.FC = () => {
         <div className="space-y-4">
           <h3 className="font-serif text-lg text-nish-ivory tracking-wider">Connect</h3>
           <div className="flex flex-col gap-2">
-             <a
-              href="https://www.linkedin.com/in/vishal-kumar291137/"
+             <a 
+              href="https://www.linkedin.com/in/nishkalya" 
+              target="_blank" 
+              rel="noopener noreferrer"
               className="flex items-center gap-2 text-nish-grey hover:text-nish-gold transition-colors group"
             >
               LinkedIn <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
-            <a
-              href="https://github.com/VISHAL291137"
+            <a 
+              href="https://github.com/VISHAL291137" 
+              target="_blank" 
+              rel="noopener noreferrer"
               className="flex items-center gap-2 text-nish-grey hover:text-nish-gold transition-colors group"
             >
               GitHub <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
-            <a href="#" className="flex items-center gap-2 text-nish-grey hover:text-nish-gold transition-colors group">
+            <a 
+              href="https://www.instagram.com/nishkalya/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-nish-grey hover:text-nish-gold transition-colors group"
+            >
+              Instagram <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+            </a>
+            <a href="mailto:nishkalya@gmail.com" className="flex items-center gap-2 text-nish-grey hover:text-nish-gold transition-colors group">
               Email <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
             </a>
           </div>
