@@ -27,7 +27,7 @@ export const About: React.FC = () => {
              <a href="#/projects">
                 <Button variant="primary">View My Work</Button>
              </a>
-             <a href="https://www.linkedin.com/in/vishal-kumar291137/" target="_blank" rel="noopener noreferrer">
+             <a href="https://www.linkedin.com/in/vishal-kumar291137/">
                 <Button variant="outline" className="flex items-center gap-2">
                   <Linkedin className="w-4 h-4" /> Connect
                 </Button>
@@ -48,10 +48,10 @@ export const About: React.FC = () => {
            <span className="block font-sans text-xs text-nish-gold tracking-[0.2em] uppercase mb-4">Developer & Designer</span>
            
            <div className="flex gap-3 justify-center">
-              <a href="https://github.com/VISHAL291137" target="_blank" rel="noopener noreferrer" className="text-nish-brown hover:text-nish-gold transition-colors">
+              <a href="https://github.com/VISHAL291137" className="text-nish-brown hover:text-nish-gold transition-colors">
                 <Github className="w-5 h-5" />
               </a>
-              <a href="https://www.linkedin.com/in/vishal-kumar291137/" target="_blank" rel="noopener noreferrer" className="text-nish-brown hover:text-nish-gold transition-colors">
+              <a href="https://www.linkedin.com/in/vishal-kumar291137/" className="text-nish-brown hover:text-nish-gold transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
            </div>
