@@ -55,7 +55,7 @@ export const Projects: React.FC = () => {
           >
             <div className="flex flex-col md:flex-row gap-6 md:gap-10">
                {/* Image */}
-               <div className="w-full md:w-1/3 aspect-video md:aspect-[4/3] overflow-hidden rounded-lg bg-gray-100 relative shadow-md group-hover:shadow-xl transition-shadow">
+               <div className="w-full md:w-1/3 aspect-video md:aspect-[4/3] overflow-hidden rounded-lg bg-gray-100 relative shadow-md">
                   <img 
                     src={project.imageUrl} 
                     alt={project.title}

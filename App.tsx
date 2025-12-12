@@ -49,7 +49,7 @@ const Hero: React.FC = () => (
         <a href="#/projects">
           <Button variant="primary" className="!px-8 !py-4 text-base shadow-xl">Explore Projects</Button>
         </a>
-        <a href="#/about">
+        <a href="#/about" target="_blank">
            <Button variant="text" className="!px-8 !py-4 text-base">About Me</Button>
         </a>
       </div>
