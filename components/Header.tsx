@@ -32,7 +32,7 @@ export const Header: React.FC = () => {
           </a>
           
           <div className="hidden md:flex items-center gap-8">
-            <a href="#/about" className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors uppercase tracking-wide">About</a>
+            <a href="#/about" target="_blank" className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors uppercase tracking-wide">About</a>
             <a href="#/highlights" className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors uppercase tracking-wide">Highlights</a>
             <a href="#/gallery" className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors uppercase tracking-wide">Gallery</a>
             <a href="#/projects" className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors uppercase tracking-wide">Projects</a>
