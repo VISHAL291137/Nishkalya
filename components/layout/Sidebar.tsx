@@ -16,18 +16,14 @@ export const Sidebar: React.FC = () => {
           <div>
             <p className="text-nish-grey text-xs uppercase tracking-wider mb-1">Connect</p>
             <div className="flex flex-col gap-2 text-nish-gold font-medium">
-              <a 
-                href="https://www.linkedin.com/in/vishal-kumar291137/" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <a
+                href="https://www.linkedin.com/in/vishal-kumar291137/"
                 className="hover:text-white transition-colors flex items-center gap-2"
               >
                 LinkedIn <span className="text-xs opacity-50">↗</span>
               </a>
-              <a 
-                href="https://github.com/VISHAL291137" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <a
+                href="https://github.com/VISHAL291137"
                 className="hover:text-white transition-colors flex items-center gap-2"
               >
                 GitHub <span className="text-xs opacity-50">↗</span>
