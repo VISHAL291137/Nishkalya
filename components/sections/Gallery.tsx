@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Card } from '../ui/Card';
+import { LazyImage } from '../ui/LazyImage';
 import { GalleryItem, GalleryCategory } from '../../types';
 import { X, ZoomIn } from 'lucide-react';
 
@@ -46,14 +47,14 @@ export const Gallery: React.FC = () => {
         {/* Masonry Grid */}
         <div className="masonry-grid">
           {filteredItems.map((item) => (
-            <div 
-              key={item.id} 
+            <div
+              key={item.id}
               className="masonry-item relative group cursor-pointer overflow-hidden rounded-lg mb-4"
               onClick={() => setSelectedImage(item)}
             >
-              <img 
-                src={item.imageUrl} 
-                alt={item.title} 
+              <LazyImage
+                src={item.imageUrl}
+                alt={item.title}
                 className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-nish-brown/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -81,13 +82,13 @@ export const Gallery: React.FC = () => {
             <X size={32} />
           </button>
           
-          <div 
+          <div
             className="relative max-w-5xl max-h-full overflow-hidden rounded-lg shadow-2xl"
-            onClick={(e) => e.stopPropagation()} 
+            onClick={(e) => e.stopPropagation()}
           >
-            <img 
-              src={selectedImage.imageUrl} 
-              alt={selectedImage.title} 
+            <LazyImage
+              src={selectedImage.imageUrl}
+              alt={selectedImage.title}
               className="max-h-[85vh] w-auto object-contain"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-12 text-white">

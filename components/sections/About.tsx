@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from '../ui/Button';
+import { LazyImage } from '../ui/LazyImage';
 import { Code, Palette, Terminal, Github, Linkedin, ChevronDown, ChevronUp } from 'lucide-react';
 
 const InfoCard: React.FC<{
@@ -80,10 +81,10 @@ export const About: React.FC = () => {
         {/* Profile Card */}
         <div className="w-full md:w-72 flex-shrink-0 flex flex-col items-center justify-center p-6 bg-nish-ivory/30 rounded-lg border border-nish-brown/10 text-center">
            <div className="w-32 h-32 bg-nish-brown rounded-full mb-4 overflow-hidden border-4 border-nish-gold shadow-lg group cursor-pointer">
-              <img 
-                src="https://github.com/VISHAL291137.png" 
-                alt="Vishal Kumar" 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+              <LazyImage
+                src="https://github.com/VISHAL291137.png"
+                alt="Vishal Kumar"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
            </div>
            <span className="block font-serif font-bold text-xl text-nish-brown tracking-widest mb-1">VISHAL KUMAR</span>

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
+import { LazyImage } from '../ui/LazyImage';
 import { Project } from '../../types';
 import { Github, ExternalLink, Eye, ArrowRight } from 'lucide-react';
 
@@ -78,10 +79,10 @@ const ProjectItem: React.FC<{ project: Project; index: number }> = ({ project, i
       <div className="flex flex-col md:flex-row gap-6 md:gap-10">
          {/* Image Container */}
          <div className="w-full md:w-1/3 aspect-video md:aspect-[4/3] overflow-hidden rounded-lg bg-gray-100 relative shadow-md group-hover:shadow-2xl transition-all duration-500">
-            <img 
-              src={project.imageUrl} 
+            <LazyImage
+              src={project.imageUrl}
               alt={project.title}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out filter grayscale group-hover:grayscale-0" 
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out filter grayscale group-hover:grayscale-0"
             />
             
             {/* Enhanced Overlay */}
