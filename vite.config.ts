@@ -18,6 +18,19 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      build: {
+        rollupOptions: {
+          output: {
+            manualChunks: {
+              'vendor': ['react', 'react-dom'],
+              'router': ['react-router-dom', '@remix-run/router'],
+              'icons': ['lucide-react'],
+              'gemini': ['@google/genai']
+            }
+          }
+        },
+        chunkSizeWarningLimit: 600
       }
     };
 });

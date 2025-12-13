@@ -80,12 +80,12 @@ const Hero: React.FC = () => (
 // Layout wrapper for inner pages
 const PageLayout: React.FC<{ children: React.ReactNode; title?: string }> = ({ children, title }) => {
   return (
-    <div className="max-w-7xl mx-auto px-4 md:px-6 pt-24 md:pt-32">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+    <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6 pt-16 sm:pt-24 md:pt-32">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 md:gap-12">
         <main className="lg:col-span-8 min-h-[60vh]">
           {title && (
-            <div className="mb-8 border-b border-nish-brown/10 pb-4">
-              <h1 className="font-serif text-3xl md:text-5xl text-nish-brown font-bold tracking-tight">{title}</h1>
+            <div className="mb-6 sm:mb-8 border-b border-nish-brown/10 pb-4">
+              <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl text-nish-brown font-bold tracking-tight">{title}</h1>
             </div>
           )}
           {children}
@@ -124,15 +124,15 @@ const ProjectDetail: React.FC = () => {
 const HomePage: React.FC = () => (
   <>
     <Hero />
-    <div className="max-w-7xl mx-auto px-4 md:px-6">
-       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          <main className="lg:col-span-8 space-y-16">
+    <div className="w-full max-w-7xl mx-auto px-3 sm:px-4 md:px-6">
+       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 md:gap-12">
+          <main className="lg:col-span-8 space-y-12 sm:space-y-16">
             <About />
-            <div className="text-center py-12">
-               <h3 className="font-serif text-2xl text-nish-brown mb-4">Discover More</h3>
-               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                 <a href="#/highlights"><Button variant="outline" fullWidth className="sm:w-auto">Highlights</Button></a>
-                 <a href="#/projects"><Button variant="outline" fullWidth className="sm:w-auto">Projects</Button></a>
+            <div className="text-center py-8 sm:py-12">
+               <h3 className="font-serif text-xl sm:text-2xl text-nish-brown mb-4">Discover More</h3>
+               <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+                 <a href="#/highlights" className="w-full sm:w-auto"><Button variant="outline" fullWidth className="sm:w-auto">Highlights</Button></a>
+                 <a href="#/projects" className="w-full sm:w-auto"><Button variant="outline" fullWidth className="sm:w-auto">Projects</Button></a>
                </div>
             </div>
             <AIConceptGenerator />
