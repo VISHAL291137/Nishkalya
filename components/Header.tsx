@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from './ui/Button';
+import { LazyImage } from './ui/LazyImage';
 import { Menu, X } from 'lucide-react';
 
 export const Header: React.FC = () => {
@@ -22,12 +23,16 @@ export const Header: React.FC = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
-          <a href="#/" className="flex items-center gap-3">
-             <div className="w-10 h-10 md:w-12 md:h-12 bg-nish-brown rounded-full flex items-center justify-center text-nish-gold border border-nish-gold">
-               <span className="text-xl">🕉️</span>
+          <a href="#/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+             <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center">
+               <LazyImage
+                 src="/premium_digital_brand_logo_-_nishkalya.jpg"
+                 alt="Nishkalya Logo"
+                 className="w-full h-full object-contain"
+               />
              </div>
-             <div>
-               <h1 className="font-serif text-xl md:text-2xl font-bold tracking-[0.15em] text-nish-brown">NISHKALYA</h1>
+             <div className="hidden sm:block">
+               <h1 className="font-serif text-lg md:text-2xl font-bold tracking-[0.15em] text-nish-brown">NISHKALYA</h1>
              </div>
           </a>
           
