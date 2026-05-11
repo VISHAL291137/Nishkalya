@@ -15,11 +15,29 @@ export const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    const hash = href.split('/')[1];
+    if (hash) {
+      e.preventDefault();
+      window.location.hash = `#/${hash}`;
+      setTimeout(() => {
+        const element = document.querySelector(`[data-section="${hash}"]`);
+        if (element) {
+          const headerHeight = 80;
+          const elementPosition = (element as HTMLElement).offsetTop - headerHeight;
+          window.scrollTo({ top: elementPosition, behavior: 'smooth' });
+        }
+      }, 0);
+    }
+  };
+
   return (
     <>
-      <nav 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-nish-ivory/95 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'
+      <nav
+        className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-nish-ivory/95 backdrop-blur-md shadow-luxury py-4 border-b border-nish-gold/10'
+            : 'bg-transparent py-6'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 md:px-6 flex justify-between items-center">
@@ -37,11 +55,11 @@ export const Header: React.FC = () => {
           </a>
           
           <div className="hidden md:flex items-center gap-8">
-            <a href="#/about" className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors uppercase tracking-wide">About</a>
-            <a href="#/highlights" className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors uppercase tracking-wide">Highlights</a>
-            <a href="#/gallery" className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors uppercase tracking-wide">Gallery</a>
-            <a href="#/projects" className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors uppercase tracking-wide">Projects</a>
-            <a href="#/contact" className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors uppercase tracking-wide">Contact</a>
+            <a href="#/about" onClick={(e) => handleSmoothScroll(e, '#/about')} className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors duration-300 uppercase tracking-wide border-b-2 border-transparent hover:border-nish-gold">About</a>
+            <a href="#/highlights" onClick={(e) => handleSmoothScroll(e, '#/highlights')} className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors duration-300 uppercase tracking-wide border-b-2 border-transparent hover:border-nish-gold">Highlights</a>
+            <a href="#/gallery" onClick={(e) => handleSmoothScroll(e, '#/gallery')} className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors duration-300 uppercase tracking-wide border-b-2 border-transparent hover:border-nish-gold">Gallery</a>
+            <a href="#/projects" onClick={(e) => handleSmoothScroll(e, '#/projects')} className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors duration-300 uppercase tracking-wide border-b-2 border-transparent hover:border-nish-gold">Projects</a>
+            <a href="#/contact" onClick={(e) => handleSmoothScroll(e, '#/contact')} className="font-sans text-sm font-medium text-nish-brown hover:text-nish-gold transition-colors duration-300 uppercase tracking-wide border-b-2 border-transparent hover:border-nish-gold">Contact</a>
             <a href="#/admin">
                <Button variant="outline" className="!py-2 !px-4 text-xs">Admin</Button>
             </a>

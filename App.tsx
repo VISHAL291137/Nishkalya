@@ -28,50 +28,59 @@ const useHashPath = () => {
 };
 
 const Hero: React.FC = () => (
-  <section className="relative min-h-[85vh] md:min-h-[85dvh] flex flex-col justify-center items-center text-center px-4 mb-16 overflow-hidden">
-    {/* Background Texture Element */}
-    <div className="absolute inset-0 z-0 opacity-5 pointer-events-none">
-       <div className="absolute top-10 left-10 w-40 h-40 md:w-64 md:h-64 bg-nish-brown rounded-full blur-[80px] md:blur-[100px]"></div>
-       <div className="absolute bottom-10 right-10 w-60 h-60 md:w-96 md:h-96 bg-nish-gold rounded-full blur-[100px] md:blur-[120px]"></div>
+  <section className="relative min-h-[85vh] md:min-h-[85dvh] flex flex-col justify-center items-center text-center px-4 pt-24 md:pt-32 pb-16 overflow-hidden bg-gradient-to-b from-white/40 to-nish-ivory/20">
+    {/* Background Texture Element - Subtle parallax effect */}
+    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+       <div className="absolute top-20 left-0 w-72 h-72 md:w-96 md:h-96 bg-nish-brown rounded-full blur-[120px] opacity-5 animate-pulse"></div>
+       <div className="absolute -bottom-20 right-0 w-80 h-80 md:w-[500px] md:h-[500px] bg-nish-gold rounded-full blur-[150px] opacity-4 animate-pulse" style={{ animationDelay: '1s' }}></div>
     </div>
-    
-    <div className="relative z-10 max-w-4xl mx-auto space-y-6 md:space-y-8 animate-in fade-in duration-1000 slide-in-from-bottom-4">
-      <div className="w-16 h-16 md:w-28 md:h-28 mx-auto bg-nish-brown rounded-full flex items-center justify-center text-nish-gold border-2 border-nish-gold shadow-2xl mb-6">
-          <span className="text-3xl md:text-5xl">🕉️</span>
+
+    <div className="relative z-10 max-w-4xl mx-auto space-y-8 md:space-y-12">
+      {/* Icon - Animated entrance */}
+      <div className="w-16 h-16 md:w-24 md:h-24 mx-auto bg-gradient-to-br from-nish-brown to-nish-brown/80 rounded-full flex items-center justify-center text-nish-gold border-2 border-nish-gold/40 shadow-luxury-lg mb-8 animate-fadeInUp" style={{ animationDelay: '0ms' }}>
+        <span className="text-2xl md:text-4xl">🕉️</span>
       </div>
 
-      {/* Hero Title Flip Animation */}
-      <div className="perspective-1000 group cursor-default inline-block">
-        <div className="relative transition-transform duration-1000 transform-style-3d group-hover:rotate-x-180">
-          <h1 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-nish-brown tracking-tighter leading-none break-words backface-hidden">
-            NISHKALYA
-          </h1>
-          <h1 className="font-sans text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold text-nish-brown tracking-normal leading-none break-words absolute inset-0 flex items-center justify-center backface-hidden rotate-x-180 bg-[#F3E9D2]">
-            निष्कालय
-          </h1>
-        </div>
+      {/* Hero Title with staggered animation */}
+      <div className="space-y-6">
+        <h1
+          className="font-display text-5xl sm:text-6xl md:text-8xl lg:text-8xl font-bold text-nish-brown tracking-tighter leading-tight animate-fadeInUp"
+          style={{ animationDelay: '100ms' }}
+        >
+          NISHKALYA
+        </h1>
+        <p className="font-serif italic text-lg md:text-xl text-nish-gold/80 animate-fadeInUp" style={{ animationDelay: '150ms' }}>
+          निष्कालय
+        </p>
       </div>
 
-      <div className="space-y-4">
-        <p className="font-serif italic text-lg md:text-2xl text-nish-grey max-w-2xl mx-auto px-4">
+      {/* Tagline and description */}
+      <div className="space-y-4 max-w-2xl mx-auto px-4 animate-fadeInUp" style={{ animationDelay: '200ms' }}>
+        <p className="font-serif italic text-base md:text-xl text-nish-grey leading-relaxed">
           Power in Stillness — Crafted with Śuddhatā & Precision
         </p>
-        <p className="font-sans text-sm md:text-base text-nish-grey/90 max-w-xl mx-auto px-4 leading-relaxed font-light">
+        <p className="font-body text-sm md:text-base text-nish-grey/85 leading-relaxed font-light">
           A sanctuary of thoughtfully built digital solutions, blending modern engineering with the calm clarity of ancient design wisdom.
         </p>
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+      {/* CTA Buttons */}
+      <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6 animate-fadeInUp" style={{ animationDelay: '250ms' }}>
         <a href="#/projects">
-          <Button variant="primary" className="!px-8 !py-4 text-sm md:text-base shadow-xl w-full sm:w-auto">Explore Projects</Button>
+          <Button variant="primary" className="!px-8 !py-3 md:!py-4 text-sm md:text-base shadow-luxury-lg hover:shadow-luxury-hover transition-all duration-300 w-full sm:w-auto">
+            Explore Projects
+          </Button>
         </a>
         <a href="#/about">
-           <Button variant="text" className="!px-8 !py-4 text-sm md:text-base w-full sm:w-auto">About Me</Button>
+          <Button variant="outline" className="!px-8 !py-3 md:!py-4 text-sm md:text-base border-2 border-nish-brown hover:bg-nish-brown hover:text-white transition-all duration-300 w-full sm:w-auto">
+            Our Story
+          </Button>
         </a>
       </div>
     </div>
 
-    <div className="absolute bottom-8 animate-bounce text-nish-brown/50">
+    {/* Scroll indicator */}
+    <div className="absolute bottom-8 animate-bounce text-nish-brown/40 hover:text-nish-brown/60 transition-colors cursor-pointer">
       <ArrowDown size={24} />
     </div>
   </section>
