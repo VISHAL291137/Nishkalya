@@ -8,6 +8,12 @@ export default defineConfig(({ mode }) => {
       server: {
         port: 3000,
         host: '0.0.0.0',
+        middlewareMode: false,
+        hmr: {
+          protocol: 'ws',
+          host: 'localhost',
+          port: 5173,
+        },
       },
       plugins: [react()],
       define: {
@@ -18,6 +24,9 @@ export default defineConfig(({ mode }) => {
         alias: {
           '@': path.resolve(__dirname, '.'),
         }
+      },
+      optimizeDeps: {
+        include: ['react', 'react-dom', 'react-router-dom'],
       },
       build: {
         rollupOptions: {
@@ -30,7 +39,9 @@ export default defineConfig(({ mode }) => {
             }
           }
         },
-        chunkSizeWarningLimit: 600
+        chunkSizeWarningLimit: 600,
+        minify: 'esbuild',
+        sourcemap: false,
       }
     };
 });

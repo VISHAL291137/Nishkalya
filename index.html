@@ -26,7 +26,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&family=Inter:wght@300;400;500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=Inter:wght@300;400;500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
@@ -36,6 +36,7 @@
               display: ['"Playfair Display"', 'serif'],
               sans: ['"Poppins"', 'sans-serif'],
               body: ['"Inter"', 'sans-serif'],
+              dm: ['"DM Sans"', 'sans-serif'],
             },
             colors: {
               'nish-ivory': '#F3E9D2',
@@ -45,6 +46,18 @@
               'nish-paper': '#FFFDF9',
             },
             keyframes: {
+              fadeUp: {
+                '0%': { opacity: '0', transform: 'translateY(24px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideInRight: {
+                '0%': { transform: 'translateX(40px)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
               fadeInUp: {
                 '0%': { opacity: '0', transform: 'translateY(40px)' },
                 '100%': { opacity: '1', transform: 'translateY(0)' },
@@ -71,6 +84,9 @@
               },
             },
             animation: {
+              fadeUp: 'fadeUp 0.6s ease forwards',
+              fadeIn: 'fadeIn 0.6s ease forwards',
+              slideInRight: 'slideInRight 0.6s ease forwards',
               fadeInUp: 'fadeInUp 0.6s ease-out forwards',
               fadeInLeft: 'fadeInLeft 0.6s ease-out forwards',
               fadeInRight: 'fadeInRight 0.6s ease-out forwards',
@@ -95,6 +111,42 @@
         background-color: #F3E9D2;
         color: #2B1F1A;
       }
+
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes slideInRight {
+        0% {
+          transform: translateX(40px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      .visible {
+        animation: fadeUp 0.6s ease forwards;
+      }
+
       .masonry-grid {
         column-count: 1;
         column-gap: 1rem;
