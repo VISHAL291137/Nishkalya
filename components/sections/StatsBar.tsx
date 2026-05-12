@@ -1,67 +1,71 @@
 import React, { useState, useEffect } from 'react';
-import { useScrollAnimation } from '../../utils/scrollAnimations';
+import { useScrollAnimation } from '../../hooks/useScrollAnimation';
 
-interface StatItem {
+interface Stat {
   value: number;
   label: string;
-  suffix?: string;
+  suffix: string;
 }
 
-const stats: StatItem[] = [
-  { value: 50, label: 'Happy Clients', suffix: '+' },
-  { value: 150, label: 'Projects Delivered', suffix: '+' },
-  { value: 3, label: 'Avg Delivery Days', suffix: ' days' },
-  { value: 5, label: 'Star Rating', suffix: '★' },
+const stats: Stat[] = [
+  { value: 12, label: 'Customers', suffix: 'K+' },
+  { value: 500, label: 'Products', suffix: '+' },
+  { value: 48, label: 'Delivery', suffix: 'h' },
+  { value: 4.9, label: 'Rating', suffix: '★' },
 ];
 
-const AnimatedCounter: React.FC<{ end: number; suffix?: string; isVisible: boolean }> = ({ end, suffix = '', isVisible }) => {
+const Counter: React.FC<{ end: number; suffix: string; isVisible: boolean }> = ({ end, suffix, isVisible }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
     if (!isVisible) return;
 
-    let start = 0;
-    const increment = end / 50;
+    let current = 0;
+    const increment = end / 40;
     const timer = setInterval(() => {
-      start += increment;
-      if (start >= end) {
+      current += increment;
+      if (current >= end) {
         setCount(end);
         clearInterval(timer);
       } else {
-        setCount(Math.floor(start));
+        setCount(Math.round(current * 10) / 10);
       }
     }, 30);
 
     return () => clearInterval(timer);
   }, [isVisible, end]);
 
-  return <span>{count}{suffix}</span>;
+  return (
+    <>
+      {count}
+      {suffix}
+    </>
+  );
 };
 
 export const StatsBar: React.FC = () => {
-  const { ref, isVisible } = useScrollAnimation({ threshold: 0.5 });
+  const ref = useScrollAnimation();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (ref.current?.classList.contains('visible')) {
+      setIsVisible(true);
+    }
+  }, [ref]);
 
   return (
     <div
       ref={ref}
-      className="w-full py-12 md:py-16 bg-gradient-to-r from-nish-brown/5 via-nish-ivory/30 to-nish-brown/5 border-y border-nish-gold/10"
+      className="w-full py-16 md:py-20 bg-gradient-to-r from-nish-brown/5 via-nish-ivory/30 to-nish-brown/5 border-y border-nish-gold/10"
     >
       <div className="max-w-7xl mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-          {stats.map((stat, index) => (
-            <div
-              key={stat.label}
-              className="text-center"
-              style={{
-                animation: isVisible ? `fadeInUp 0.6s ease-out forwards` : 'none',
-                animationDelay: `${index * 100}ms`,
-                opacity: isVisible ? 1 : 0,
-              }}
-            >
-              <div className="text-3xl md:text-5xl font-display font-bold text-nish-gold mb-2">
-                {isVisible ? <AnimatedCounter end={stat.value} suffix={stat.suffix} isVisible={isVisible} /> : '0'}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
+          {stats.map((stat, idx) => (
+            <div key={stat.label} className="text-center" style={{ animation: isVisible ? `fadeUp 0.6s ease forwards` : 'none', animationDelay: `${idx * 100}ms` }}>
+              <div className="text-4xl md:text-5xl font-display font-bold text-nish-gold mb-2">
+                {isVisible ? <Counter end={stat.value} suffix={stat.suffix} isVisible={isVisible} /> : '0'}
               </div>
-              <p className="text-sm md:text-base font-sans text-nish-brown/80">{stat.label}</p>
+              <p className="text-sm md:text-base font-body text-nish-brown/80">{stat.label}</p>
             </div>
           ))}
         </div>

@@ -11,6 +11,7 @@ import { Contact } from './components/sections/Contact';
 import { Admin } from './components/sections/Admin';
 import { AIConceptGenerator } from './components/AIConceptGenerator';
 import { ArrowDown, Construction } from 'lucide-react';
+import { useScrollAnimation } from './hooks/useScrollAnimation';
 
 // Simple hash router hook
 const useHashPath = () => {
@@ -27,64 +28,92 @@ const useHashPath = () => {
   return path;
 };
 
-const Hero: React.FC = () => (
-  <section className="relative min-h-[85vh] md:min-h-[85dvh] flex flex-col justify-center items-center text-center px-4 pt-24 md:pt-32 pb-16 overflow-hidden bg-gradient-to-b from-white/40 to-nish-ivory/20">
-    {/* Background Texture Element - Subtle parallax effect */}
-    <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-       <div className="absolute top-20 left-0 w-72 h-72 md:w-96 md:h-96 bg-nish-brown rounded-full blur-[120px] opacity-5 animate-pulse"></div>
-       <div className="absolute -bottom-20 right-0 w-80 h-80 md:w-[500px] md:h-[500px] bg-nish-gold rounded-full blur-[150px] opacity-4 animate-pulse" style={{ animationDelay: '1s' }}></div>
-    </div>
+const Hero: React.FC = () => {
+  const contentRef = useScrollAnimation();
 
-    <div className="relative z-10 max-w-4xl mx-auto space-y-8 md:space-y-12">
-      {/* Icon - Animated entrance */}
-      <div className="w-16 h-16 md:w-24 md:h-24 mx-auto bg-gradient-to-br from-nish-brown to-nish-brown/80 rounded-full flex items-center justify-center text-nish-gold border-2 border-nish-gold/40 shadow-luxury-lg mb-8 animate-fadeInUp" style={{ animationDelay: '0ms' }}>
-        <span className="text-2xl md:text-4xl">🕉️</span>
+  return (
+    <section className="relative min-h-screen flex items-center justify-center px-4 pt-24 md:pt-32 pb-16 overflow-hidden bg-gradient-to-b from-white/40 to-nish-ivory/20">
+      {/* Background Elements */}
+      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-20 left-0 w-72 h-72 md:w-96 md:h-96 bg-nish-brown rounded-full blur-[120px] opacity-5 animate-pulse"></div>
+        <div className="absolute -bottom-20 right-0 w-80 h-80 md:w-[500px] md:h-[500px] bg-nish-gold rounded-full blur-[150px] opacity-4 animate-pulse" style={{ animationDelay: '1s' }}></div>
       </div>
 
-      {/* Hero Title with staggered animation */}
-      <div className="space-y-6">
-        <h1
-          className="font-display text-5xl sm:text-6xl md:text-8xl lg:text-8xl font-bold text-nish-brown tracking-tighter leading-tight animate-fadeInUp"
-          style={{ animationDelay: '100ms' }}
-        >
-          NISHKALYA
-        </h1>
-        <p className="font-serif italic text-lg md:text-xl text-nish-gold/80 animate-fadeInUp" style={{ animationDelay: '150ms' }}>
-          निष्कालय
-        </p>
+      <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        {/* Content - Left Side */}
+        <div ref={contentRef} className="space-y-8">
+          {/* Icon */}
+          <div className="w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br from-nish-brown to-nish-brown/80 rounded-full flex items-center justify-center text-nish-gold border-2 border-nish-gold/40 shadow-luxury-lg">
+            <span className="text-2xl md:text-4xl">🕉️</span>
+          </div>
+
+          {/* Title */}
+          <div className="space-y-4">
+            <h1 className="font-display text-6xl md:text-7xl font-bold text-nish-brown tracking-tight leading-tight">
+              NISHKALYA
+            </h1>
+            <p className="font-serif italic text-lg md:text-xl text-nish-gold/80">
+              निष्कालय
+            </p>
+          </div>
+
+          {/* Description */}
+          <div className="space-y-3 max-w-2xl">
+            <p className="font-serif italic text-base md:text-lg text-nish-grey leading-relaxed">
+              Power in Stillness — Crafted with Śuddhatā & Precision
+            </p>
+            <p className="font-body text-sm md:text-base text-nish-grey/85 leading-relaxed">
+              A sanctuary of thoughtfully built digital solutions, blending modern engineering with the calm clarity of ancient design wisdom.
+            </p>
+          </div>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+            <a href="#/projects">
+              <Button variant="primary" className="!px-8 !py-3 md:!py-4 text-sm md:text-base shadow-luxury-lg hover:shadow-luxury-hover transition-all duration-300 w-full sm:w-auto">
+                Explore Projects
+              </Button>
+            </a>
+            <a href="#/about">
+              <Button variant="outline" className="!px-8 !py-3 md:!py-4 text-sm md:text-base border-2 border-nish-brown hover:bg-nish-brown hover:text-white transition-all duration-300 w-full sm:w-auto">
+                Our Story
+              </Button>
+            </a>
+          </div>
+        </div>
+
+        {/* Card Stack - Right Side */}
+        <div className="hidden lg:flex justify-center items-center relative h-96">
+          {/* Card 1 */}
+          <div className="absolute w-72 h-80 bg-white rounded-lg shadow-lg p-6 border border-nish-gold/20 transform -rotate-6 -translate-x-8 transition-transform hover:rotate-0 hover:translate-x-0" style={{ animation: 'fadeUp 0.6s ease forwards' }}>
+            <div className="text-4xl mb-4">✨</div>
+            <h3 className="font-display text-xl font-bold text-nish-brown mb-2">Premium Quality</h3>
+            <p className="text-sm text-nish-grey">Handcrafted with meticulous attention to detail</p>
+          </div>
+
+          {/* Card 2 */}
+          <div className="absolute w-72 h-80 bg-white rounded-lg shadow-lg p-6 border border-nish-gold/20 transform rotate-3 z-10" style={{ animation: 'fadeUp 0.6s ease forwards 100ms' }}>
+            <div className="text-4xl mb-4">🎨</div>
+            <h3 className="font-display text-xl font-bold text-nish-brown mb-2">Modern Design</h3>
+            <p className="text-sm text-nish-grey">Contemporary aesthetics meeting timeless elegance</p>
+          </div>
+
+          {/* Card 3 */}
+          <div className="absolute w-72 h-80 bg-white rounded-lg shadow-lg p-6 border border-nish-gold/20 transform rotate-6 translate-x-8 transition-transform hover:-rotate-0 hover:translate-x-0" style={{ animation: 'fadeUp 0.6s ease forwards 200ms' }}>
+            <div className="text-4xl mb-4">💎</div>
+            <h3 className="font-display text-xl font-bold text-nish-brown mb-2">Authentic Value</h3>
+            <p className="text-sm text-nish-grey">Every piece tells a story of heritage</p>
+          </div>
+        </div>
       </div>
 
-      {/* Tagline and description */}
-      <div className="space-y-4 max-w-2xl mx-auto px-4 animate-fadeInUp" style={{ animationDelay: '200ms' }}>
-        <p className="font-serif italic text-base md:text-xl text-nish-grey leading-relaxed">
-          Power in Stillness — Crafted with Śuddhatā & Precision
-        </p>
-        <p className="font-body text-sm md:text-base text-nish-grey/85 leading-relaxed font-light">
-          A sanctuary of thoughtfully built digital solutions, blending modern engineering with the calm clarity of ancient design wisdom.
-        </p>
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-nish-brown/40 hover:text-nish-brown/60 transition-colors cursor-pointer">
+        <ArrowDown size={24} />
       </div>
-
-      {/* CTA Buttons */}
-      <div className="flex flex-col sm:flex-row gap-4 justify-center pt-6 animate-fadeInUp" style={{ animationDelay: '250ms' }}>
-        <a href="#/projects">
-          <Button variant="primary" className="!px-8 !py-3 md:!py-4 text-sm md:text-base shadow-luxury-lg hover:shadow-luxury-hover transition-all duration-300 w-full sm:w-auto">
-            Explore Projects
-          </Button>
-        </a>
-        <a href="#/about">
-          <Button variant="outline" className="!px-8 !py-3 md:!py-4 text-sm md:text-base border-2 border-nish-brown hover:bg-nish-brown hover:text-white transition-all duration-300 w-full sm:w-auto">
-            Our Story
-          </Button>
-        </a>
-      </div>
-    </div>
-
-    {/* Scroll indicator */}
-    <div className="absolute bottom-8 animate-bounce text-nish-brown/40 hover:text-nish-brown/60 transition-colors cursor-pointer">
-      <ArrowDown size={24} />
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 // Layout wrapper for inner pages
 const PageLayout: React.FC<{ children: React.ReactNode; title?: string }> = ({ children, title }) => {
